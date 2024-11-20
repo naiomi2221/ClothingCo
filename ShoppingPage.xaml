@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClothingCo.ShoppingPage"
+             Title="ShoppingPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cart" IconImageSource="purplecart.png" Clicked="OnCartClicked" />
+        <ToolbarItem Text="My Account" IconImageSource="account_icon.png" Clicked="OnAccountClicked" />
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <CollectionView ItemsSource="{Binding Products}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Grid.Row="0" Grid.Column="0" Padding="5" Margin="10" BorderColor="Green" CornerRadius="10" BackgroundColor="White" HeightRequest="350">
+                            <StackLayout Spacing="5">
+                                <Image Source="{Binding Image}" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Name}" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Quantity}" FontSize="12" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <Label Text="{Binding Price}" FontSize="14" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                                <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
+                                    <Button Text="-" CommandParameter="{Binding}" 
+                                            Clicked="DecreaseQuantity_Clicked" 
+                                            BackgroundColor="Green" 
+                                            TextColor="White" 
+                                            Padding="5,0"/>
+                                    <Button Text="+" 
+                                            CommandParameter="{Binding}" 
+                                            Clicked="IncreaseQuantity_Clicked" 
+                                            BackgroundColor="Green" 
+                                            TextColor="White" 
+                                            Padding="5,0"/>
+                                    
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Margin="20" Spacing="5">
+                                    <Button Text="Remove" 
+                                        Clicked="RemoveItem_Clicked" 
+                                        CommandParameter="{Binding}" 
+                                        BackgroundColor="Green"
+                                        TextColor="White"
+                                        HorizontalOptions="Start"
+                                        FontSize="12"/>
+                                    <Button Text="Add to cart" 
+                                        CommandParameter="{Binding}" 
+                                        Clicked="AddToCart_Clicked" 
+                                        BackgroundColor="Green" 
+                                        TextColor="White" 
+                                        HorizontalOptions="Start" 
+                                        FontSize="12" />
+                                </HorizontalStackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
+</ContentPage>
+
+    
+

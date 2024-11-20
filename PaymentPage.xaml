@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClothingCo.PaymentPage"
+             Title="PaymentPage"
+             BackgroundColor="Grey">
+    <VerticalStackLayout Spacing="15" Padding=" 15">
+        <Label 
+            Text="Payment Processing" 
+            FontSize="Header"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            Padding="20"/>
+        
+        <Label Text="Enter your card details securely here:" 
+               HorizontalOptions="Center" 
+               FontSize="Medium"/>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+            <Entry x:Name="Name" 
+               BackgroundColor="white" 
+               Placeholder="Name" 
+               PlaceholderColor="Grey" 
+               HorizontalOptions="Center" 
+               MinimumWidthRequest="200"/>
+
+            <Entry x:Name="Address" 
+               Background="White" 
+               Placeholder="Address" 
+               PlaceholderColor="grey" 
+               HorizontalOptions="Center"  
+               MinimumWidthRequest="200"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20">
+            
+            <Entry x:Name="city" 
+                   BackgroundColor="White" 
+                   Placeholder="City" 
+                   PlaceholderColor="Grey"
+                   MinimumWidthRequest="200"/>
+            
+            <Entry x:Name="state" 
+                   BackgroundColor="White" 
+                   Placeholder="State" 
+                   PlaceholderColor="Grey"
+                   MinimumWidthRequest="75"/>
+
+            <Entry x:Name="zip" 
+                   BackgroundColor="White" 
+                   Placeholder="Zip" 
+                   PlaceholderColor="Grey" 
+                   MaximumWidthRequest="100" 
+                   Keyboard="Numeric"/>
+        </HorizontalStackLayout>
+        
+        <Entry x:Name="CardNumber" 
+               BackgroundColor="White" 
+               Placeholder="Card Number" 
+               Keyboard="Numeric" 
+               MaximumWidthRequest="400" 
+               MinimumWidthRequest="200" 
+               HorizontalOptions="Center"/>
+        
+        
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="15">
+            
+            <Label Text="Expiration: " 
+                   FontSize="Medium"  />
+            
+            <Entry x:Name="ExpMonth" 
+                   BackgroundColor="White" 
+                   MaximumWidthRequest="75" 
+                   Keyboard="Numeric" 
+                   Placeholder="00" 
+                   PlaceholderColor="Grey"/>
+            
+            <Label Text="/" 
+                   FontSize="Medium"/>
+            
+            <Entry x:Name="ExpYear" 
+                   BackgroundColor="White" 
+                   Placeholder="00" 
+                   Keyboard="Numeric" 
+                   PlaceholderColor="Grey" 
+                   MaximumWidthRequest="75"/>
+            
+            <Label Text="Enter CVV:" 
+                   FontSize="Medium"/>
+            
+            <Entry x:Name="CVV" 
+                   BackgroundColor="White" 
+                   Placeholder="CVV" 
+                   Keyboard="Numeric" 
+                   MaximumWidthRequest="75" />
+            
+        </HorizontalStackLayout>
+        
+        <Button x:Name="makePayment" 
+                Clicked="MakePayment_Clicked" 
+                HorizontalOptions="Center" 
+                BackgroundColor="DarkGreen" 
+                MaximumWidthRequest="100" Text="Submit" />
+
+    </VerticalStackLayout>
+</ContentPage>

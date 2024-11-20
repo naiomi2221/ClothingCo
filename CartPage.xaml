@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClothingCo.CartPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Your Cart" FontSize="24" HorizontalOptions="Center" Margin="0,10"/>
+
+            <ListView x:Name="CartListView"
+                      ItemsSource="{Binding CartItems}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="5">
+                                <Image Source="{Binding Image}" HeightRequest="50" WidthRequest="50" />
+                                <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Start" />
+                                <Label Text="{Binding Quantity}" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                                <Label Text="{Binding Price}" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                                <Button Text="Remove" 
+                                        Clicked="RemoveItem_Clicked" 
+                                        CommandParameter="{Binding}" 
+                                        HorizontalOptions="End"
+                                        BackgroundColor="Green"
+                                        TextColor="White"/>
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal" Padding="10">
+                <Label Text="Total: " FontSize="18" VerticalOptions="Center" />
+                <Label Text="{Binding TotalPrice}" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+
+            <Button Text="Proceed to Checkout" 
+                    BackgroundColor="Green" 
+                    TextColor="White" 
+                    FontSize="16" 
+                    HorizontalOptions="Center"
+                    Clicked="GoToCheckout"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ClothingCo.MyAccountPage" BackgroundColor="WhiteSmoke">
+
+    <StackLayout>
+        <HorizontalStackLayout Spacing="15" Padding="10">
+            <Label x:Name="nameentrylabel" TextDecorations="Underline" TextColor="DarkGreen" Text="Enter your email:" FontSize="Medium"/>
+            <Entry x:Name="EmailEntry" Placeholder="Enter Email" MinimumWidthRequest="400"/>
+            <Button Text="Load Order History" Clicked="OnMyAccountButtonClicked" MaximumWidthRequest="100" BackgroundColor="Green" TextColor="White"/>
+        </HorizontalStackLayout>
+
+        <ListView ItemsSource="{Binding Orders}"
+                  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="5"
+                               Padding="10"
+                               BorderColor="#cccccc"
+                               CornerRadius="10"
+                               HasShadow="True">
+                            <StackLayout>
+                                <Label Text="Order ID"
+                                       FontAttributes="Bold"
+                                       TextColor="#333333" />
+                                <Label Text="{Binding OrderID}"
+                                       FontSize="Medium"
+                                       TextColor="#000000" />
+
+                                <Label Text="Order Date"
+                                       FontAttributes="Bold"
+                                       TextColor="#333333" />
+                                <Label Text="{Binding OrderDate, StringFormat='{0:MMMM dd, yyyy}'}"
+                                       FontSize="Small"
+                                       TextColor="#666666" />
+
+                                <Label Text="Order Status"
+                                       FontAttributes="Bold"
+                                       TextColor="#333333" />
+                                <Label Text="{Binding OrderStatus}"
+                                       FontSize="Small"
+                                       TextColor="#666666" />
+
+                                <Label Text="Total Amount"
+                                       FontAttributes="Bold"
+                                       TextColor="#333333" />
+                                <Label Text="{Binding TotalAmount, StringFormat='${0:F2}'}"
+                                       FontSize="Small"
+                                       TextColor="#666666" />
+
+                                <Button Text="Cancel Order" 
+                                        Clicked="CancelOrder"
+                                        BackgroundColor="Red" 
+                                        TextColor="White" 
+                                        IsVisible="{Binding CanCancel}" 
+                                        CommandParameter="{Binding OrderID}" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClothingCo.MainPage"
+             BackgroundColor="WhiteSmoke">
+    
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="hoodie.jpg"
+                HeightRequest="135"
+                Aspect="AspectFit"
+                 />
+
+            <Label
+                Text="Clothing Co."
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Label
+                Text="Login Here"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+               />
+            <Entry x:Name="usernameTxt" MaximumWidthRequest="200" Placeholder="Username" PlaceholderColor="Green"/>
+            <Entry x:Name="passwordTxt" MaximumWidthRequest="200" Placeholder="Password" PlaceholderColor="Green"
+                   IsPassword="True"/>
+            <Button
+                x:Name="Login" BackgroundColor="Green" TextColor="White" Text="Enter" MaximumWidthRequest="150"
+                Clicked="LoginClicked" HorizontalOptions="Fill" />
+                   
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button x:Name="reset" Clicked="ResetClicked" BackgroundColor="Transparent" Text="Reset Password" TextColor="DarkGreen"  FontSize="12"/>
+                <Button x:Name="create" Clicked="CreateClicked" BackgroundColor="Transparent" Text="Create Account" TextColor="DarkGreen"  FontSize="12"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
