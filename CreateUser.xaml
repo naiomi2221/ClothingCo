@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClothingCo.CreateUser"
+             BackgroundColor="LightGrey">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+            Text="Create Account here"
+            FontAutoScalingEnabled="True"
+            FontSize="Header"
+            TextColor="DarkGreen"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Padding="10">
+               
+                <Entry x:Name="Name" 
+                   Placeholder="Name" 
+                   MinimumWidthRequest="300"
+                   BackgroundColor="white" 
+                   PlaceholderColor="DarkGreen"/>
+
+                <Entry x:Name="Address" 
+                   Placeholder="Address" 
+                   MinimumWidthRequest="500"
+                   BackgroundColor="white" 
+                   PlaceholderColor="DarkGreen"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Padding="10">
+
+                <Entry x:Name="City" 
+                       Placeholder="City" 
+                       MinimumWidthRequest="200" 
+                       BackgroundColor="white" 
+                       PlaceholderColor="DarkGreen"/>
+
+                <Entry x:Name="State" 
+                       Placeholder="State" 
+                       MinimumWidthRequest="100" 
+                       BackgroundColor="white" 
+                       PlaceholderColor="DarkGreen"/>
+
+                <Entry x:Name="Zip" 
+                       Placeholder="Zip" 
+                       MinimumWidthRequest="200" 
+                       Keyboard="Numeric" 
+                       BackgroundColor="white" 
+                       PlaceholderColor="DarkGreen"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center" Padding="10">
+                <Entry x:Name="Phone" 
+                       Placeholder="Phone Number" 
+                       Keyboard="Numeric" 
+                       MinimumWidthRequest="200" 
+                       BackgroundColor="white" 
+                       PlaceholderColor="DarkGreen"/>
+
+                <Entry x:Name="emailEntry" 
+                   Placeholder="Email" 
+                   MinimumWidthRequest="300" 
+                   BackgroundColor="white" 
+                   PlaceholderColor="DarkGreen"/>
+            </HorizontalStackLayout>
+            <Picker x:Name="SecurityQuestionPicker"
+                    SelectedItem="{Binding SelectedQuestion}"
+                    MaximumWidthRequest="400"
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    ItemsSource="{Binding SecurityQuestions}" 
+                    ItemDisplayBinding="{Binding Question}"
+                    Title="Select a question: ">
+            </Picker>
+
+
+            <VerticalStackLayout Spacing="20" Padding="15">
+                <Entry x:Name="SecurityAnswer" 
+                       Placeholder="Answer" 
+                       BackgroundColor="white" 
+                       PlaceholderColor="DarkGreen" 
+                       MinimumWidthRequest="200" 
+                       HorizontalOptions="Center" />
+                <HorizontalStackLayout  Spacing="20" HorizontalOptions="Center" Padding="10">
+                    <Entry x:Name="Password" 
+                       Placeholder="Password" 
+                       IsPassword="True" 
+                       BackgroundColor="white" 
+                       PlaceholderColor="DarkGreen" 
+                       MinimumWidthRequest="200" 
+                       HorizontalOptions="Center"/>
+                    
+                    <Entry x:Name="ConfirmPassword" 
+                       Placeholder="Confirm Password" 
+                       IsPassword="True" 
+                       BackgroundColor="white" 
+                       PlaceholderColor="DarkGreen" 
+                       MinimumWidthRequest="200" 
+                       HorizontalOptions="Center"/>
+                </HorizontalStackLayout>
+                <Label x:Name="PasswordMatchLabel" 
+                       TextColor="Red" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       IsVisible="False"/>
+
+                
+                <Button x:Name="Insert" 
+                        Text="Submit" 
+                        Clicked="Insert_Clicked" 
+                        Background="Green" 
+                        TextColor="White" 
+                        HorizontalOptions="Center" 
+                        MaximumWidthRequest="100"/>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
